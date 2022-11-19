@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>Login</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            <form method="post">
+                {% csrf_token %}
+
+                <label for="un">ENTER USERNAME</label>
+                
+                <input type="text" id="un" name="un" class="form-control"/>
+                <br><br>
+                <label for="pw">ENTER PASSWORD</label>
+                
+                <input type="text"id="pw" name="pw" class="form-control"/>
+
+                {% if messages %}
+                <br>
+                    {% for i in messages %}
+
+                    <b style="color:red;">{{i}}</b>
+                    {% endfor %}
+        
+                {% endif %}
+
+                <br><br>
+                <input type="submit" class="btn btn-success btn-lg"/>
+            </form>
+        </div>
+    </div>
+{% endblock %}

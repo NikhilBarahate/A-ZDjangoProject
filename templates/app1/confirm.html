@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+<title>Confirm Delete Page</title>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <form method="post">
+            {% csrf_token %}
+            <h3>Do You Want to Delete <span style="color: red;">{{data.fname}} {{data.lname}}</span> Record ?</h3>
+            <input type="submit" value="Yes" class="btn btn-danger"/>
+            <button class="btn btn-warning"><a href="{% url 'showemp_urls' %}">No</a></button>
+        </form>
+    </div>
+</div>
+{% endblock %}
